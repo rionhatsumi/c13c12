@@ -198,9 +198,9 @@ void plot_uf_cc()
 
 	//the shadow area is  up and down limits
 	shadow(ufc12c12_henning, ufc12c13_henning, ufc12c13_henning, mg, kGreen+2);
-	shadow(ufc12c12_henning, ufc12c13_henning, ufc12c13_henning, mg, kGreen+2, 0., 3., 1./1.3);
+	shadow(ufc12c12_henning, ufc12c13_henning, ufc12c13_henning, mg, kGreen+2, 0., 3., 0.68);
 	shadow(ufc12c12_tdhf, ufc12c13_tdhf, ufc12c12_tdhf, mg, kBlue);
-	shadow(ufc12c12_tdhf, ufc12c13_tdhf, ufc12c12_tdhf, mg, kBlue, 0., 3., 1./1.45*0.97);
+	shadow(ufc12c12_tdhf, ufc12c13_tdhf, ufc12c12_tdhf, mg, kBlue, 0., 3.,0.67 );
 	
 	//tex
 	TLatex *tex = new TLatex(1.,57e+015,"M3Y+REP");
@@ -623,15 +623,15 @@ void shadow(const TGraph* tge1,const TGraph* tge2,const TGraph* tge3, TMultiGrap
 	TGraphAsymmErrors *gmax = new TGraphAsymmErrors(100, x0, ymax, y0, y0, ydown, y0);
 	TGraph *gmin = new TGraph(100, x0, ymin);
 	gmax->SetLineWidth(1);
-//	gmax->SetLineStyle(2);
-	gmax->SetLineColorAlpha(color, 0.4);
+	gmax->SetLineStyle(2);
+//	gmax->SetLineColorAlpha(color, 0.4);
 	gmin->SetLineWidth(1);
-//	gmin->SetLineStyle(2);
-	gmin->SetLineColorAlpha(color, 0.4);
-//	gmax->SetFillStyle(1001);
-	gmax->SetFillColorAlpha(color, 0.4);
-//	gmax->SetFillColor(color);
-//	gmin->SetFillColor(color);
+	gmin->SetLineStyle(2);
+//	gmin->SetLineColorAlpha(color, 0.4);
+	gmax->SetFillStyle(1001);
+//	gmax->SetFillColorAlpha(color, 0.4);
+	gmax->SetFillColor(color);
+	gmin->SetFillColor(color);
 	mg->Add(gmax, "CE3");
 	mg->Add(gmin);
 }
@@ -666,15 +666,15 @@ void shadow(const TGraph* tge1, const TGraph* tge2,const  TGraph* tge3, TMultiGr
 	TGraph *gmin = new TGraph(100, x0, ymin);
 	gmax->SetLineWidth(1);
 	gmax->SetLineStyle(1);
-	gmax->SetLineColorAlpha(color,0.8);
+//	gmax->SetLineColorAlpha(color,0.8);
 	gmin->SetLineWidth(1);
 	gmin->SetLineStyle(1);
-	gmin->SetLineColorAlpha(color,0.8);
-//	gmax->SetFillStyle(3002);
-	gmax->SetFillColorAlpha(color,0.4);
-//	gmax->SetLineColor(color);
-//	gmax->SetFillColor(color);
-//	gmin->SetLineColor(color);
+//	gmin->SetLineColorAlpha(color,0.8);
+	gmax->SetFillStyle(3002);
+//	gmax->SetFillColorAlpha(color,0.4);
+	gmax->SetLineColor(color);
+	gmax->SetFillColor(color);
+	gmin->SetLineColor(color);
 	mg->Add(gmax, "CE3");
 	mg->Add(gmin);
 }

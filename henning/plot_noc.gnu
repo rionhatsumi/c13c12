@@ -1,1 +1,0 @@
-plot [0:6.5] 'henning_c12c12_cc_smod.dat' u 1:($2*0.8) w l, 'henning_c12c12_noc_smod.dat' u 1:($2*0.8) w l,'../aguilera_kns_prc.sfactor' u 1:2 w l, '../aguilera_smod.dat' w errorbars, '../aguilera_smod.dat' w l, '../becker_smod.dat' w errorbars

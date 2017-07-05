@@ -68,6 +68,7 @@ void plot_cc()
 	mg_c12c13_smod->Add(gr_c12c13dayras, "PZ");
 	mg_c12c13_smod->Add(gr_c12c13nd, "PZ");
 	mg_c12c13_smod->Add(gr_c12c13imp, "PZ");
+	mg_c12c13_smod->Add(gr_c12c13das, "PZ");
 
 	TF1* func_hind_c12c13 = new TF1("func_hind_c12c13",hindrance_s,0.5,5.0,5);
 	func_hind_c12c13->SetParameters(-2.32,59.37,3.45,6.23e16,12*13/25.);
@@ -116,7 +117,7 @@ void plot_cc()
 		gr_c12c13das->SetLineWidth(2);
 		gr_c12c13das->SetLineColor(kGreen+2);
 		gr_c12c13das->SetMarkerColor(kGreen+2);
-		gr_c12c13das->SetMarkerStyle(33);
+		gr_c12c13das->SetMarkerStyle(20);
 
 		gr_c12c13anl->SetLineWidth(2);
 		gr_c12c13anl->SetLineColor(6);
@@ -190,10 +191,10 @@ void plot_cc()
 	cout<<"Fitting 13C+13C ........."<<endl<<endl;
 	xmin_fit=2.0, xmax_fit=5.0;
 	TF1* func_hind_c13c13 = new TF1("func_hind_c13c13",hindrance_s,xmin_fit,xmax_fit,5);
-	Fit_low_E(mg_c13c13_smod,func_hind_c13c13, 13.0/2, xmin_fit,xmax_fit);
-	func_hind_c13c13->SetRange(0.5,xmax_fit);	
+//	Fit_low_E(mg_c13c13_smod,func_hind_c13c13, 13.0/2, xmin_fit,xmax_fit);
+//	func_hind_c13c13->SetRange(0.5,xmax_fit);	
 
-	mg_c13c13_smod->Draw("P");
+//	mg_c13c13_smod->Draw("P");
 	//	func_hind_c13c13->Draw("same");	
 
 	leg->AddEntry(gr_c12c12sp, "^{12}C+^{12}C(SP07)", "P");		
@@ -202,7 +203,7 @@ void plot_cc()
 //	leg->AddEntry(gr_c12c12ko, "^{12}C+^{12}C(Kovar)", "P");		
 	leg->AddEntry(gr_c12c13dayras, "^{12}C+^{13}C(DA76)", "P");
 	leg->AddEntry(gr_c12c13nd, "^{12}C+^{13}C(NO11)", "P");
-//	leg->AddEntry(gr_c12c13das, "^{12}C+^{13}C(Dasmapapatra)", "P");
+	leg->AddEntry(gr_c12c13das, "^{12}C+^{13}C(Das)", "P");
 	leg->AddEntry(gr_c12c13imp, "^{12}C+^{13}C(IMP17)", "P");
 	leg->AddEntry(gr_c13c13tren_smod, "^{13}C+^{13}C(TR88)", "P");
 	leg->AddEntry(func_hind_c12c12, "Jiang", "L");
@@ -216,7 +217,7 @@ void plot_cc()
 	ufc12c12spp->Draw("C");
 	ufc12c12spp->SetLineWidth(2);
 	ufc12c12spp->SetLineStyle(kDashed);
-
+	leg->AddEntry(ufc12c12spp, "gasques", "l");
 	plot_hind();
 	//	cal_hind();
 
@@ -328,7 +329,7 @@ void plot_m3y(TLegend *leg) {
 
 	gr_c12c12->Draw("C");
 	gr_c12c13->Draw("C");
-	gr_c13c13->Draw("C");
+//	gr_c13c13->Draw("C");
 	//	gr_c12c12->Print("all");
 	leg->AddEntry(gr_c12c12, "M3Y+Rep", "L");
 }
@@ -352,7 +353,7 @@ void plot_spp(TLegend *leg) {
 
 	gr_c12c12->Draw("C");
 	gr_c12c13->Draw("C");
-	gr_c13c13->Draw("C");
+//	gr_c13c13->Draw("C");
 	leg->AddEntry(gr_c12c12, "SPP", "L");
 }
 
@@ -391,9 +392,9 @@ void plot_esw(TLegend *leg) {
 	gr_c13c13->SetLineWidth(2);
 
 
-	gr_c12c12->Draw("C");
+//	gr_c12c12->Draw("C");
 	gr_c12c13->Draw("C");
-	gr_c13c13->Draw("C");
+//	gr_c13c13->Draw("C");
 	leg->AddEntry(gr_c12c12, "ESW", "L");
 }
 
